@@ -1,4 +1,4 @@
-type ChannelInfo = {
+export type ChannelInfo = {
   wifi_name: string;
   bssid: string;
   signal_strength: number;
