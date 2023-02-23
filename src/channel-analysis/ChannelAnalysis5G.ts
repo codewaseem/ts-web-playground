@@ -2,13 +2,13 @@ import {
     Chart,
     Options,
     SeriesOptionsType,
-  } from "../node_modules/highcharts/highcharts";
+  } from "../../node_modules/highcharts/highcharts";
   import {
     mergeOptions,
     defaultOptions,
     defaultColors,
     getColorByIndex,
-  } from "./baseChartOptions";
+  } from "../baseChartOptions";
   import { ChannelInfo } from "./data";
 
   const columnsCount = 130;

@@ -11191,3 +11191,19 @@ export const data: ChannelInfo[] = [
     dev_type: "Extender",
   },
 ];
+
+const data2G: typeof data = [];
+const data5G: typeof data = [];
+
+data.forEach((item) => {
+  if (item.band == "2.4G") {
+    data2G.push(item);
+  } else if (item.band == "5G") {
+    data5G.push(item);
+  }
+});
+
+export {
+  data2G,
+  data5G
+}
