@@ -28,6 +28,14 @@ export default class ChannelChangeChart {
         title: {
           text: "Time",
         },
+        labels: {
+          useHTML: true,
+          formatter: function(){
+            const time = Highcharts.dateFormat('%H:%M', +this.value);
+            const date = Highcharts.dateFormat('%b %e, %Y', +this.value);
+            return  `<div style="text-align:center">${time}<br />${date}</div>`
+          }
+        },
         min: +chChangeData[0].ts,
         dateTimeLabelFormats: {
           day: "%e %b %Y",
