@@ -33,7 +33,7 @@ export default class ChannelAnalysis2G {
       },
       xAxis: {
         title: {
-          text: "Band",
+          text: "Frequency (GHz)",
         },
         lineWidth: 0,
         tickInterval: 5,

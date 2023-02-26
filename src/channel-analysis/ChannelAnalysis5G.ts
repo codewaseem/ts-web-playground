@@ -12,10 +12,10 @@ import {
   import { ChannelInfo } from "./data";
 
   const columnsCount = 130;
-  const WIDTH_ADJUST = 2;
-  const COLUMN_WIDTH = 7;
+  const WIDTH_ADJUST = 5;
+  const COLUMN_WIDTH = 5;
 
-  const xOffset = 5170;
+  const xOffset = 5180;
 
 
   export default class ChannelAnalysis5G {
@@ -43,9 +43,9 @@ import {
           text: "Channel Analysis - 5G",
         },
         xAxis: {
-          min: 5165,
+          min: 5175,
           title: {
-            text: "Band"
+            text: "Frequency (GHz)"
           },
           lineWidth: 0,
           tickInterval: 5,
@@ -158,6 +158,7 @@ import {
               <div>
               <div><b>Ch: </b> ${i+36}</div>
               <div><b>Count: </b> ${channelCounts[i+36] || 0}</div>
+              <div>
             </div>
               `
             }
@@ -202,7 +203,7 @@ import {
       this.data.forEach((item) => {
         const center = xOffset + (+item.center_ch - 36) * WIDTH_ADJUST;
   
-        const width = Number(item.width) / 5;
+        const width = Number(item.width) / 3;
         const height = Math.abs(Number(item.signal_strength));
   
         const point1 = [center - width, 0];
@@ -226,6 +227,7 @@ import {
           },
           color: getColorByIndex(+item.center_ch ),
           data: [point1, point2, point3, point4],
+          linkedTo: item.center_ch
         });
       });
     }

@@ -53,35 +53,35 @@ export const defaultOptions: Options = {
   colors: defaultColors,
   yAxis: {
     title: {
-        align: 'middle',
-        style: {
-            'color': 'black'
-        }
+      align: "middle",
+      style: {
+        color: "black",
+      },
     },
     labels: {
-        style: {
-            color: 'black',
-            fontSize: "12px"
-        }
+      style: {
+        color: "black",
+        fontSize: "12px",
+      },
     },
   },
   xAxis: {
     title: {
-        align: 'middle',
-        style: {
-            'color': 'black'
-        }
+      align: "middle",
+      style: {
+        color: "black",
+      },
     },
     labels: {
-        style: {
-            color: 'black',
-            fontSize: "12px"
-        }
+      style: {
+        color: "black",
+        fontSize: "12px",
+      },
     },
     dateTimeLabelFormats: {
-        millisecond: '%H:%M',
-        second: '%H:%M'
-    }
+      second: "%H:%M, %b %e, %Y",
+      millisecond: "%H:%M, %b %e, %Y",
+    },
   },
   noData: {
     style: {
@@ -115,10 +115,14 @@ export const defaultOptions: Options = {
             this.renderer
               .image(
                 "http://nj51damtpa3v.nss.vzwnet.com/VMAS/blacktheme/images/login-logo.png",
-                0, // x
-                30, // y
-                117, // width
-                40 // height
+                0,
+                // x
+                30,
+                // y
+                117,
+                // width
+                40
+                // height
               )
               .add();
           },
@@ -129,25 +133,25 @@ export const defaultOptions: Options = {
 };
 
 function deepMerge<T>(target: T, source: Partial<T>): T {
-    const merged = {...target};
-  
-    for (const key of Object.keys(source)) {
-      const targetValue = (merged as any)[key];
-      const sourceValue = (source as any)[key];
-  
-      if (typeof sourceValue === 'object' && typeof targetValue === 'object') {
-        (merged as any)[key] = deepMerge(targetValue, sourceValue);
-      } else {
-        (merged as any)[key] = sourceValue;
-      }
+  const merged = { ...target };
+
+  for (const key of Object.keys(source)) {
+    const targetValue = (merged as any)[key];
+    const sourceValue = (source as any)[key];
+
+    if (typeof sourceValue === "object" && typeof targetValue === "object") {
+      (merged as any)[key] = deepMerge(targetValue, sourceValue);
+    } else {
+      (merged as any)[key] = sourceValue;
     }
-  
-    return merged;
   }
+
+  return merged;
+}
 
 export const mergeOptions: typeof deepMerge<Options> = deepMerge;
 
-export function getColorByIndex( index: number): string {
+export function getColorByIndex(index: number): string {
   const colorIndex = index % defaultColors.length;
   return defaultColors[colorIndex];
 }
